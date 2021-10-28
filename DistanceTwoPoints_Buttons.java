@@ -3,6 +3,10 @@ import org.w3c.dom.Text;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * GUI application that asks the user's input for the latitudes and longitudes of two locations
+ * to find the distance between them.
+ */
 public class DistanceTwoPoints_Buttons {
 
     // Define a button handler
@@ -19,11 +23,11 @@ public class DistanceTwoPoints_Buttons {
             Distance twoLoc = new Distance(loc1,loc2);
             dist = twoLoc.CalcDist();
             dist = dist/1000.0; // distance in km
-            outputDist.setText("The distance between the two locations is " + dist);
+            outputDist.setText("The distance between the two locations is " + Math.round(dist) + " km.");
         }
     }
 
-    // Defining the objects that are shared by main and button handler
+    // Defining the objects that are shared by main method and the button handler
     private static Frame outputFrame;
     private static Label Latitude1;
     private static TextField latField1;
@@ -80,10 +84,7 @@ public class DistanceTwoPoints_Buttons {
                 outputFrame.dispose();
                 System.exit(0);
             }
-        });
-
-
-
+        }
+        );
     }
-
 }
